@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find your way through pathfinding. An interactive playground for BFS, DFS, Dijkstra and A*.">
+  <meta name="theme-color" content="#111a18">
+  <title>Pathora — Find Your Way</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./algorithms.js" defer></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <header class="header"><a class="brand" href="./" aria-label="Pathora home"><span class="brand-icon">↗</span> pathora<span class="brand-dot">.</span></a><span class="header-note">A little curiosity. A clearer path.</span><span class="tag">INTERACTIVE LAB <span>01</span></span></header>
+  <main>
+    <section class="intro"><div><p class="eyebrow"><span></span> THE PATHFINDING PLAYGROUND</p><h1>Every journey starts<br>with <em>a little exploration.</em></h1><p class="subtitle">Build an obstacle. Pick an algorithm. Watch it find its way.</p></div><div class="intro-aside"><span class="compass">✳</span><p>Different routes.<br>One destination.</p></div></section>
+    <section class="workspace" aria-label="Pathfinding playground">
+      <aside class="sidebar">
+        <div class="section-label">01 <span>CHOOSE YOUR EXPLORER</span></div>
+        <div class="algorithms" role="group" aria-label="Algorithm">
+          <button class="algorithm selected" data-algorithm="bfs" aria-pressed="true"><span><strong>Breadth-first</strong><small>Explore layer by layer</small></span><span class="algo-code">BFS</span></button>
+          <button class="algorithm" data-algorithm="dfs" aria-pressed="false"><span><strong>Depth-first</strong><small>Follow one route deeply</small></span><span class="algo-code">DFS</span></button>
+          <button class="algorithm" data-algorithm="dijkstra" aria-pressed="false"><span><strong>Dijkstra</strong><small>Find the lowest cost</small></span><span class="algo-code">DIJ</span></button>
+          <button class="algorithm" data-algorithm="astar" aria-pressed="false"><span><strong>A* search</strong><small>Let the destination guide you</small></span><span class="algo-code">A*</span></button>
+        </div>
+        <div class="algorithm-info"><span id="guarantee" class="badge">✓ SHORTEST PATH</span><h2 id="algo-title">Meet breadth-first search.</h2><p id="algo-description"></p><div class="info-foot">4 directions <span>·</span> Equal movement costs</div></div>
+        <div class="section-label tools-heading">02 <span>SHAPE THE TERRAIN</span></div>
+        <div class="tool-buttons" role="group" aria-label="Editing tool"><button data-tool="wall" class="selected" aria-pressed="true">▧ Draw wall</button><button data-tool="erase" aria-pressed="false">⌫ Erase</button><button data-tool="start" aria-pressed="false">● Start</button><button data-tool="finish" aria-pressed="false">⚑ Finish</button></div>
+        <button id="maze" class="secondary full">↝ Generate maze</button><button id="clear-walls" class="text-button full">Clear all walls</button>
+      </aside>
+      <div class="playground"><div class="board-heading"><div><h2>Your next adventure</h2><p id="edit-help">Drag to draw walls. Drag the markers to move them.</p></div><span id="state-badge" class="state-badge">READY TO EXPLORE</span></div>
+        <div class="grid-shell"><div id="grid" role="grid" aria-label="Pathfinding grid"></div></div>
+        <div class="board-bottom"><div class="legend"><span><i class="start-key"></i>Start</span><span><i class="finish-key"></i>Finish</span><span><i class="wall-key"></i>Wall</span><span><i class="visited-key"></i>Visited</span><span><i class="path-key"></i>Path</span></div><span class="grid-size" id="grid-size"></span></div>
+        <div class="playback"><div class="playback-buttons"><button id="play" class="primary">▶ <span>Explore</span></button><button id="step" class="secondary" title="Advance one cell">↦ <span>Step</span></button><button id="reset" class="icon-button" title="Reset exploration" aria-label="Reset exploration">↺</button></div><label class="speed">Speed <input id="speed" type="range" min="1" max="5" value="3"><output id="speed-value">1×</output></label></div>
+        <div class="stats"><div><span class="stat-label">CELLS EXPLORED</span><strong id="visited-count">0</strong><small>places along the way</small></div><div><span class="stat-label">PATH LENGTH</span><strong id="path-length">—</strong><small>steps to your destination</small></div><div class="status-block"><span class="stat-label">FIELD NOTES</span><p id="status" role="status" aria-live="polite">The grid is yours. Where will you go?</p></div></div>
+      </div>
+    </section>
+    <section class="how-to"><span class="eyebrow">A QUICK FIELD GUIDE</span><div><h3>Make it your own.</h3><p>Draw walls on the grid, or generate a maze. Choose Start or Finish and tap an empty cell to relocate a marker.</p></div><div><h3>Follow the search.</h3><p>Explore to animate. Pause to take a closer look, or step through one cell at a time. Reset keeps your terrain.</p></div><div><h3>Try another perspective.</h3><p>Run different algorithms on the same terrain. A shortest path isn’t always the first path you discover.</p></div></section>
+  </main><footer><span>pathora. <span class="muted">Find your way.</span></span><span>Built for the curious ↗</span></footer>
+</body>
+</html>
